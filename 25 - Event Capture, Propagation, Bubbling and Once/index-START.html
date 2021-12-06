@@ -42,7 +42,14 @@
 
 <button></button>
 <script>
-
+  const btn = document.querySelector('button');
+  const divs = document.querySelectorAll('div');
+  function logText(e) {
+    console.log(this.classList.value);
+    e.stopPropagation();
+  }
+  divs.forEach(div => div.addEventListener('click', logText, {capture: false, once: true}));
+  btn.addEventListener('click', e => console.log('button!'), {once: true});
 </script>
 </body>
 </html>
